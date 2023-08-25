@@ -9,3 +9,5 @@ It starts by opening a shell, sending the target machine's public IP address to 
 
 #### Italian keyboard layout is coming soon..
 
+## Disclamer
+This script has been created purely for educational purposes and is not intended to be used to attack systems except where explicitly authorized. Project maintainers are not responsible or liable for misuse of the software. Use responsibly.
